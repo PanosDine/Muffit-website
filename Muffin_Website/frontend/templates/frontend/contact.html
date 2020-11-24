@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-widt, initial-scale=1.0h">
+        <title>Contact Form</title>
+        {% load static %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+        />
+        <link rel="stylesheet" type="text/css" href="{% static "css/contact.css" %}>
+    </head>
+    <body>
+        <div id="main">
+        <div id="app"></div>
+        </div>
+        <section>
+                <div class="container">
+                    <div class="contactinfo">
+                        <div>
+                            <h2>Contact Info</h2>
+                            <ul class="info">
+                                <li>
+                                    <span><img src="../static/images/pin.png"></span>
+                                    <span>2a Wrentham avenue<br>
+                                            London, UK<br>
+                                            NW10 3HA</span>
+                                </li>
+                                <li>
+                                    <span><img src="../static/images/email.png"></span>
+                                    <span>panagiotisntine@yahoo.com</span>
+                                </li>
+                                <li>
+                                    <span><img src="../static/images/smartphone.png"></span>
+                                    <span>07926713807</span>
+                                </li>
+                            </ul>
+                            <ul class="sci">
+                                <li><a href="#"></a><img src="../static/images/facebook.png"/></li>
+                                <li><a href="#"></a><img src="../static/images/instagram.png"/></li>
+                                <li><a href="#"></a><img src="../static/images/linkedin.png"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="contactForm">
+                        <h2>Send a Message</h2>
+                        <div class="formBox">
+                            <div class="inputBox w50">
+                                <input type="text" name="" required/>
+                                <span>Name</span>
+                            </div>
+                            <div class="inputBox w50">
+                                <input type="text" name="" required/>
+                                <span>Email address</span>
+                            </div>
+                            <div class="inputBox w100">
+                                <textarea name="" required></textarea>
+                                <span>Write your message here</span>
+                            </div>
+                            <div class="inputBox w100">
+                                <input type="submit" value="Send"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <script src="{% static "frontend/main.js" %}"></script>
+    </body>
+<html/>
