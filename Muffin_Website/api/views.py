@@ -15,7 +15,7 @@ class CustomerView(generics.ListCreateAPIView):
     serializer_class = CustomerSerializer
 
 
-class OrderView(generics.ListAPIView):
+class OrderView(generics.ListCreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
 
@@ -37,18 +37,20 @@ class CreateOrderView(APIView):
         
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
+            customer = serializer.data.get('customer')
             delivery_address = serializer.data.get('delivery_address')
             delivery_date = serializer.data.get('delivery_date')
             host = self.request.session.session_key
             queryset = Order.objects.filter(host=host)
             if queryset.exists():
                 order = queryset[0]
+                order.customer_id = customer
                 order.delivery_address = delivery_address
                 order.delivery_date = delivery_date
-                order.save(update_fields=['delivery_address', 'delivery_date'])
+                order.save(update_fields=['customer_id', 'delivery_address', 'delivery_date'])
                 return Response(OrderSerializer(order).data, status=status.HTTP_200_OK)
             else:
-                order = Order(host=host, delivery_address=delivery_address, 
+                order = Order(host=host, customer_id=customer, delivery_address=delivery_address, 
                 delivery_date=delivery_date)
                 order.save()
                 return Response(OrderSerializer(order).data, status=status.HTTP_201_CREATED)
