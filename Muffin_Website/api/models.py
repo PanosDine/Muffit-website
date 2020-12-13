@@ -1,6 +1,7 @@
 from django.db import models
 import string
 import random
+from phonenumber_field.modelfields import PhoneNumberField
 
 def generate_unique_code():
     length = 6
@@ -27,11 +28,11 @@ class Customer(models.Model):
     postcode = models.CharField(max_length=10)
     email = models.EmailField(max_length=50, unique=True)
     password = models.CharField(max_length=50, unique=True)
-    phone = models.IntegerField()
+    phone = PhoneNumberField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return self.name #if self.name else 'New Customer'
 
 
 class Order(models.Model):

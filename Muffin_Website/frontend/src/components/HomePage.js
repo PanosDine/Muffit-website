@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import AboutPage from "./AboutPage";
 import ContactPage from "./ContactPage";
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from "react-router-dom";
+import CreateOrderPage from "./CreateOrderPage";
 
 
 export default class HomePage extends Component {
@@ -18,6 +19,7 @@ export default class HomePage extends Component {
                 </Route>
                 <Route path="/about" component={AboutPage} />
                 <Route path="/contact" component={ContactPage} />
+                <Route path="/order" component={CreateOrderPage} />
             </Switch>
         </Router>);
     }

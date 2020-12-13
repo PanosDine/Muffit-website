@@ -1,0 +1,24 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "PostgreSQL",
+            "name": "postgres_db",
+            "database": "my_db",
+            "username": "postgres_admin",
+            "password": "admin123"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 64708,
+            "driver": "PostgreSQL",
+            "name": "postgres_db",
+            "database": "my_db",
+            "username": "postgres_admin",
+            "password": "admin123"
+        }
+    ]
+}

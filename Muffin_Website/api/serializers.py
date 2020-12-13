@@ -10,10 +10,9 @@ class CustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Customer 
         fields = ('id', 'name', 'address', 
-        'postcode', 'email', 'phone')
+        'postcode', 'email', 'password', 'phone')
 
 class OrderSerializer(serializers.ModelSerializer):
-    customer = serializers.Field
     class Meta:
         model = Order 
         fields = ('id', 'host', 'code', 
@@ -30,9 +29,7 @@ class CreateMuffinSerializer(serializers.ModelSerializer):
         fields = ('muffin_name', 'muffin_price')
 
 class CreateOrderSerializer(serializers.ModelSerializer):
-    #customer = serializers.Field(source='customer.name') 
-    #this line allows me to
-    #freely allocate a new customer name without it already existing in the db
+    customer = serializers.CharField(source='customer.name') 
     class Meta:
         model = Order
         fields = ('delivery_address', 'delivery_date', 'customer')
